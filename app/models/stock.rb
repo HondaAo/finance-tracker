@@ -6,7 +6,7 @@ class Stock < ApplicationRecord
   validates :name, presence: true
 
     def self.new_lookup(ticker_symbol)
-        client = IEX::Api::Client.new(publishable_token: 'Tpk_918dae15fd4c4efb850dfb75206ba415',
+        client = IEX::Api::Client.new(publishable_token: '',
                                       endpoint: 'https://sandbox.iexapis.com/v1')
         begin
           new(ticker: ticker_symbol, name: client.company(ticker_symbol).company_name, last_price:client.price(ticker_symbol))   
